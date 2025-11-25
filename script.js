@@ -27,7 +27,7 @@ async function getmovie() {
         data.forEach(item => {
             const {name,rating,image,summary} = item.show
                 const cleanSummary = summary 
-        ? summary.replace(/<[^>]*>/g, '').slice(0, 270) + '...'
+        ? summary.replace(/<[^>]*>/g, '').slice(0, 200) + '...'
         : 'No description available';
             const element = document.createElement('div')
                 element.classList.add('card')
@@ -43,9 +43,8 @@ async function getmovie() {
                 `
                 element.addEventListener('click',()=>{
                     const {name, rating, image, summary, genres, premiered, language} = item.show
-                                    const fullSummary = summary 
-                    ? summary.replace(/<[^>]*>/g, '')
-                    : 'No description available';
+                                    const fullSummary = summary ? summary.replace(/<[^>]*>/g, '').slice(0, 300) + (summary.length > 300 ? '...' : '')
+        : 'No description available';
                     movie.style.display = 'none'
                     const elementbig = document.createElement('div')
                     elementbig.classList.add('fullinfo')
