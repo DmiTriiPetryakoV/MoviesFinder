@@ -50,14 +50,18 @@ async function getmovie() {
                     elementbig.classList.add('fullinfo')
                                     elementbig.innerHTML = `
                     <div class="fullcard">
+                    <div id="boxBtn">
                         <button class="back-btn">← Назад</button>
+                    </div>
                         <div class="boxinfo">
                             <p class="title">${name}</p>
                             <div class="radio">
                                 <p class="rating">${rating?.average || 'N/A'}</p>
                             </div>
                         </div>
+                        <div id="boxImage">
                         <img src='${image?.original || image?.medium || ''}' class="full-image"/>
+                        </div>
                         <div class="full-details">
                             ${premiered ? `<p><strong>Release Date:</strong> ${premiered}</p>` : ''}
                             ${language ? `<p><strong>Language:</strong> ${language}</p>` : ''}
